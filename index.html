@@ -1,0 +1,1151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZooCrew — Small Tools. Big Personality.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700&family=Fredoka+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --cream: #fdf6ec;
+        --cream2: #f7eddc;
+        --cream3: #eddfc8;
+        --ink: #2d2416;
+        --ink2: #5a4a35;
+        --ink3: #8a7a66;
+        --pink: #f0437a;
+        --orange: #f07c2a;
+        --gold: #e8b830;
+        --teal: #2ab89a;
+        --blue: #3a9fd6;
+        --purple: #9060d0;
+        --green: #3ab870;
+        --border: rgba(90, 74, 53, 0.13);
+        --border2: rgba(90, 74, 53, 0.22);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "Nunito", sans-serif;
+        font-size: 17px;
+        line-height: 1.65;
+        overflow-x: hidden;
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3rem;
+        height: 68px;
+        background: rgba(253, 246, 236, 0.93);
+        backdrop-filter: blur(14px);
+        border-bottom: 2px solid var(--cream3);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+      .nav-logo img {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+      }
+      .nav-wordmark {
+        font-family: "Fredoka One", cursive;
+        font-size: 1.5rem;
+        color: var(--orange);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+        align-items: center;
+      }
+      .nav-links a {
+        color: var(--ink2);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.95rem;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      .nav-cta {
+        background: var(--pink);
+        color: #fff !important;
+        padding: 0.5rem 1.3rem;
+        border-radius: 50px;
+        font-weight: 800 !important;
+        font-size: 0.9rem !important;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.13);
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s !important;
+      }
+      .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 0 rgba(0, 0, 0, 0.13) !important;
+        color: #fff !important;
+      }
+
+      /* HERO */
+      .hero {
+        padding: 5rem 2rem 3.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-bg-circles {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        overflow: hidden;
+      }
+      .hero-bg-circles svg {
+        position: absolute;
+        opacity: 0.06;
+      }
+
+      .hero-paw {
+        width: 150px;
+        height: 150px;
+        border-radius: 28px;
+        margin-bottom: 2rem;
+        filter: drop-shadow(0 8px 28px rgba(240, 67, 122, 0.22));
+        animation: bob 3.5s ease-in-out infinite;
+      }
+      @keyframes bob {
+        0%,
+        100% {
+          transform: rotate(-2deg) translateY(0);
+        }
+        50% {
+          transform: rotate(2deg) translateY(-9px);
+        }
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        background: #fff;
+        border: 2px solid var(--cream3);
+        border-radius: 50px;
+        padding: 0.35rem 1rem;
+        font-size: 0.8rem;
+        font-weight: 800;
+        color: var(--ink2);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 2px 0 var(--cream3);
+      }
+
+      .hero h1 {
+        font-family: "Fredoka One", cursive;
+        font-size: clamp(3rem, 8vw, 5.8rem);
+        line-height: 1.05;
+        letter-spacing: 0.01em;
+        margin-bottom: 1.5rem;
+        color: var(--ink);
+      }
+      .hero h1 .c1 {
+        color: var(--pink);
+      }
+      .hero h1 .c2 {
+        color: var(--orange);
+      }
+
+      .hero-sub {
+        color: var(--ink2);
+        font-size: 1.12rem;
+        max-width: 50ch;
+        margin-bottom: 2.5rem;
+        line-height: 1.75;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 3rem;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--pink);
+        color: #fff;
+        font-family: "Nunito", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        padding: 0.88rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        box-shadow:
+          0 4px 0 rgba(0, 0, 0, 0.13),
+          0 8px 24px rgba(240, 67, 122, 0.22);
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+      .btn-primary:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 7px 0 rgba(0, 0, 0, 0.13),
+          0 14px 30px rgba(240, 67, 122, 0.28);
+      }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--ink);
+        font-family: "Nunito", sans-serif;
+        font-size: 1.05rem;
+        font-weight: 800;
+        padding: 0.88rem 2rem;
+        border-radius: 50px;
+        text-decoration: none;
+        border: 2.5px solid var(--border2);
+        cursor: pointer;
+        transition:
+          border-color 0.18s,
+          background 0.18s;
+      }
+      .btn-ghost:hover {
+        border-color: var(--ink2);
+        background: var(--cream2);
+      }
+
+      .pills {
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .pill {
+        background: #fff;
+        border: 2px solid var(--cream3);
+        border-radius: 50px;
+        padding: 0.3rem 0.85rem;
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--ink2);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .pill-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        flex-shrink: 0;
+      }
+
+      /* WAVE */
+      .wave {
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        margin-bottom: -2px;
+      }
+      .wave svg {
+        display: block;
+        width: 100%;
+      }
+      .wave-flip {
+        transform: scaleX(-1) scaleY(-1);
+      }
+
+      /* SECTIONS */
+      section {
+        position: relative;
+        z-index: 1;
+      }
+      .section-pad {
+        padding: 5rem 2rem;
+      }
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      .label {
+        font-size: 0.74rem;
+        font-weight: 800;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--teal);
+        margin-bottom: 0.5rem;
+      }
+      .title {
+        font-family: "Fredoka One", cursive;
+        font-size: clamp(1.9rem, 4vw, 2.9rem);
+        line-height: 1.1;
+        letter-spacing: 0.01em;
+        margin-bottom: 0.75rem;
+        color: var(--ink);
+      }
+      .sub {
+        color: var(--ink2);
+        max-width: 55ch;
+        font-size: 1.03rem;
+        line-height: 1.7;
+      }
+      .section-hdr {
+        margin-bottom: 3rem;
+      }
+
+      /* APPS */
+      #apps {
+        background: var(--cream2);
+      }
+
+      .apps-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .app-card {
+        background: #fff;
+        border: 2.5px solid var(--cream3);
+        border-radius: 22px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .app-card:hover {
+        transform: translateY(-5px) rotate(0.25deg);
+        box-shadow: 0 14px 40px rgba(45, 36, 22, 0.1);
+      }
+
+      .tape {
+        position: absolute;
+        top: -7px;
+        right: 28px;
+        width: 38px;
+        height: 14px;
+        border-radius: 3px;
+        background: rgba(232, 184, 48, 0.5);
+        transform: rotate(2deg);
+      }
+
+      .app-icon {
+        width: 66px;
+        height: 66px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.3rem;
+        background: var(--cream);
+        border: 2px solid var(--cream3);
+      }
+      .app-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .app-name {
+        font-family: "Fredoka One", cursive;
+        font-size: 1.55rem;
+        color: var(--ink);
+      }
+      .app-tag {
+        font-size: 0.78rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--ink3);
+        margin-top: -0.35rem;
+      }
+      .app-desc {
+        color: var(--ink2);
+        font-size: 0.89rem;
+        line-height: 1.65;
+        flex: 1;
+      }
+
+      .app-foot {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 1rem;
+        border-top: 2px dashed var(--cream3);
+        margin-top: 0.2rem;
+      }
+
+      .badge {
+        font-size: 0.71rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 0.3rem 0.8rem;
+        border-radius: 50px;
+        border: 2px solid;
+      }
+      .badge-live {
+        background: #e8f9f0;
+        color: #1a7a48;
+        border-color: #a8e8c8;
+      }
+      .badge-soon {
+        background: #fff8e0;
+        color: #8a6010;
+        border-color: #f0d870;
+      }
+      .badge-soon2 {
+        background: #f0e8ff;
+        color: #6030a0;
+        border-color: #c8a8f0;
+      }
+
+      .app-price {
+        font-size: 0.88rem;
+        font-weight: 700;
+        color: var(--ink2);
+      }
+      .app-price strong {
+        font-family: "Fredoka One", cursive;
+        font-size: 1.2rem;
+        color: var(--ink);
+      }
+
+      .more-card {
+        background: var(--cream);
+        border-style: dashed;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        min-height: 230px;
+      }
+      .more-card .more-icons {
+        font-size: 2.8rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.5rem;
+      }
+      .more-card p {
+        color: var(--ink2);
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      /* PILLARS */
+      #philosophy {
+        background: var(--cream);
+      }
+
+      .pillars {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.25rem;
+      }
+      .pillar {
+        background: #fff;
+        border: 2px solid var(--cream3);
+        border-radius: 16px;
+        padding: 1.75rem;
+        transition: transform 0.2s;
+      }
+      .pillar:hover {
+        transform: translateY(-3px);
+      }
+      .pillar-icon {
+        font-size: 2.2rem;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+      .pillar h3 {
+        font-family: "Fredoka One", cursive;
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+      .pillar p {
+        color: var(--ink2);
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+
+      /* CREW */
+      #crew {
+        background: var(--cream2);
+      }
+
+      .crew-note {
+        font-style: italic;
+        color: var(--ink3);
+        font-size: 0.93rem;
+        margin-top: 0.4rem;
+      }
+
+      .crew-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+        gap: 1.5rem;
+        margin-top: 0.5rem;
+      }
+
+      .crew-card {
+        background: #fff;
+        border: 2.5px solid var(--cream3);
+        border-radius: 22px;
+        overflow: hidden;
+        text-align: center;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        position: relative;
+      }
+      .crew-card:nth-child(odd) {
+        transform: rotate(-0.7deg);
+      }
+      .crew-card:nth-child(even) {
+        transform: rotate(0.7deg);
+      }
+      .crew-card:hover {
+        transform: rotate(0deg) translateY(-5px) !important;
+        box-shadow: 0 12px 36px rgba(45, 36, 22, 0.11);
+        z-index: 2;
+      }
+
+      .crew-placeholder {
+        width: 100%;
+        aspect-ratio: 1;
+        background: var(--cream2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 5rem;
+        border-bottom: 2px solid var(--cream3);
+      }
+      .crew-photo {
+        width: 100%;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-bottom: 2px solid var(--cream3);
+      }
+
+      .crew-info {
+        padding: 1.1rem 0.9rem 1.3rem;
+      }
+      .crew-name {
+        font-family: "Fredoka One", cursive;
+        font-size: 1.15rem;
+        margin-bottom: 0.2rem;
+      }
+      .crew-role {
+        font-size: 0.7rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.55rem;
+      }
+      .crew-bio {
+        color: var(--ink2);
+        font-size: 0.82rem;
+        line-height: 1.55;
+      }
+
+      /* ABOUT */
+      #about {
+        background: var(--cream);
+        text-align: center;
+      }
+      .about-inner {
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .about-inner .title {
+        margin-bottom: 0;
+      }
+
+      .squiggle {
+        display: block;
+        margin: 1.5rem auto;
+      }
+
+      .about-inner p {
+        color: var(--ink2);
+        font-size: 1.03rem;
+        line-height: 1.8;
+        margin-bottom: 1.2rem;
+      }
+      .about-inner p strong {
+        color: var(--ink);
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--cream2);
+        border-top: 2px solid var(--cream3);
+        padding: 3rem 2rem 2.5rem;
+        text-align: center;
+      }
+      .foot-logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 1.25rem;
+        text-decoration: none;
+      }
+      .foot-logo img {
+        width: 30px;
+        height: 30px;
+        border-radius: 7px;
+      }
+      .foot-wordmark {
+        font-family: "Fredoka One", cursive;
+        font-size: 1.2rem;
+        color: var(--orange);
+      }
+
+      .foot-links {
+        display: flex;
+        gap: 1.75rem;
+        justify-content: center;
+        list-style: none;
+        margin-bottom: 1.5rem;
+        flex-wrap: wrap;
+      }
+      .foot-links a {
+        color: var(--ink2);
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 700;
+        transition: color 0.2s;
+      }
+      .foot-links a:hover {
+        color: var(--ink);
+      }
+
+      .foot-copy {
+        color: var(--ink3);
+        font-size: 0.8rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <a href="#" class="nav-logo">
+        <img src="ZooCrew.png" alt="ZooCrew paw logo" />
+        <span class="nav-wordmark">ZooCrew</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#apps">Apps</a></li>
+        <li><a href="#crew">The Crew</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#apps" class="nav-cta">Get SpaceHog →</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-bg-circles">
+        <svg
+          width="440"
+          height="440"
+          style="top: -100px; left: -130px"
+          viewBox="0 0 440 440"
+        >
+          <circle
+            cx="220"
+            cy="220"
+            r="200"
+            stroke="#f07c2a"
+            stroke-width="3"
+            fill="none"
+            stroke-dasharray="14 20"
+          />
+        </svg>
+        <svg
+          width="310"
+          height="310"
+          style="bottom: 20px; right: -70px"
+          viewBox="0 0 310 310"
+        >
+          <circle
+            cx="155"
+            cy="155"
+            r="135"
+            stroke="#f0437a"
+            stroke-width="3"
+            fill="none"
+            stroke-dasharray="10 16"
+          />
+        </svg>
+        <svg
+          width="210"
+          height="210"
+          style="top: 35%; left: 4%"
+          viewBox="0 0 210 210"
+        >
+          <circle
+            cx="105"
+            cy="105"
+            r="88"
+            stroke="#2ab89a"
+            stroke-width="2.5"
+            fill="none"
+            stroke-dasharray="7 13"
+          />
+        </svg>
+      </div>
+
+      <img src="ZooCrew.png" alt="ZooCrew" class="hero-paw" />
+      <p class="hero-eyebrow">🐾 Buy Once · Keep Forever · No Nonsense</p>
+
+      <h1>
+        Small tools.<br />
+        <span class="c1">Big</span> <span class="c2">personality.</span>
+      </h1>
+
+      <p class="hero-sub">
+        ZooCrew makes fast, focused desktop utilities for people who care about
+        their digital lives. No subscriptions. No cloud accounts. Just software
+        that does exactly what it says.
+      </p>
+
+      <div class="hero-btns">
+        <a href="#apps" class="btn-primary">Browse the apps 🐾</a>
+        <a href="#crew" class="btn-ghost">Meet the crew</a>
+      </div>
+
+      <div class="pills">
+        <span class="pill"
+          ><span class="pill-dot" style="background: #3ab870"></span>Windows ·
+          macOS · Linux</span
+        >
+        <span class="pill"
+          ><span class="pill-dot" style="background: #3a9fd6"></span>No
+          installer needed</span
+        >
+        <span class="pill"
+          ><span class="pill-dot" style="background: #e8b830"></span>Starts
+          instantly</span
+        >
+        <span class="pill"
+          ><span class="pill-dot" style="background: #f0437a"></span>Owned
+          forever</span
+        >
+      </div>
+    </section>
+
+    <div class="wave">
+      <svg
+        viewBox="0 0 1440 52"
+        preserveAspectRatio="none"
+        height="52"
+        fill="#f7eddc"
+      >
+        <path
+          d="M0,26 C240,52 480,0 720,26 C960,52 1200,0 1440,26 L1440,52 L0,52 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- APPS -->
+    <section id="apps" class="section-pad">
+      <div class="container">
+        <div class="section-hdr">
+          <p class="label">The Software</p>
+          <h2 class="title">Meet the menagerie.</h2>
+          <p class="sub">
+            Each tool is a creature with a job. Small, focused, and opinionated
+            — the kind of software a real person actually wants to use.
+          </p>
+        </div>
+        <div class="apps-grid">
+          <div class="app-card">
+            <div class="tape"></div>
+            <div class="app-icon">
+              <img src="SpaceHog.png" alt="SpaceHog" />
+            </div>
+            <div>
+              <div class="app-name">SpaceHog</div>
+              <div class="app-tag">Disk Space Analyzer</div>
+            </div>
+            <div class="app-desc">
+              Find out what's eating your drive — fast. SpaceHog maps your disk
+              usage so you can track down the culprits and reclaim your storage
+              in seconds. No install required.
+            </div>
+            <div class="app-foot">
+              <span class="badge badge-live">✦ Available Now</span>
+              <span class="app-price"><strong>$19</strong> one-time</span>
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div
+              class="tape"
+              style="
+                background: rgba(42, 184, 154, 0.4);
+                left: 24px;
+                right: auto;
+                transform: rotate(-1.5deg);
+              "
+            ></div>
+            <div class="app-icon"><img src="FrameRat.png" alt="FrameRat" /></div>
+            <div>
+              <div class="app-name">FrameRat</div>
+              <div class="app-tag">Media Library Auditor</div>
+            </div>
+            <div class="app-desc">
+              FrameRat scans your video library and flags what a file browser
+              can't — duplicate copies of the same title, bitrate health for
+              4K/1080p/720p content, HDR type, codec, and audio tracks. When
+              you spot the dead weight, delete it right from the app.
+            </div>
+            <div class="app-foot">
+              <span class="badge badge-soon">Coming Soon</span>
+              <span
+                class="app-price"
+                style="
+                  color: var(--ink3);
+                  font-size: 0.82rem;
+                  font-style: italic;
+                "
+                >notify me →</span
+              >
+            </div>
+          </div>
+
+          <div class="app-card">
+            <div
+              class="tape"
+              style="
+                background: rgba(144, 96, 208, 0.35);
+                transform: rotate(1.2deg);
+              "
+            ></div>
+            <div class="app-icon"><img src="NameFerret.png" alt="NameFerret" /></div>
+            <div>
+              <div class="app-name">NameFerret</div>
+              <div class="app-tag">Name Availability Checker</div>
+            </div>
+            <div class="app-desc">
+              Picking a name for your next project? NameFerret checks it across
+              the App Store, Google Play, Microsoft Store, GitHub, and your
+              choice of domains — all at once. You get a single availability
+              score for each name so you know what's actually safe to use.
+            </div>
+            <div class="app-foot">
+              <span class="badge badge-soon2">Coming Soon</span>
+              <span
+                class="app-price"
+                style="
+                  color: var(--ink3);
+                  font-size: 0.82rem;
+                  font-style: italic;
+                "
+                >notify me →</span
+              >
+            </div>
+          </div>
+
+          <div class="app-card more-card">
+            <div class="more-icons">🦉🦬🦅🐉</div>
+            <div class="app-name">More on the way.</div>
+            <p>
+              ShutterHawk · VaultDragon<br />MomentMoose · and more.<br /><br />The
+              crew keeps growing.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave wave-flip">
+      <svg
+        viewBox="0 0 1440 52"
+        preserveAspectRatio="none"
+        height="52"
+        fill="#fdf6ec"
+      >
+        <path
+          d="M0,26 C240,52 480,0 720,26 C960,52 1200,0 1440,26 L1440,52 L0,52 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- PHILOSOPHY -->
+    <section id="philosophy" class="section-pad">
+      <div class="container">
+        <div class="section-hdr">
+          <p class="label">How we build</p>
+          <h2 class="title">Software that fits in your pocket.</h2>
+          <p class="sub">
+            We build tools the old-fashioned way — small, focused, and actually
+            yours to keep.
+          </p>
+        </div>
+        <div class="pillars">
+          <div class="pillar">
+            <span class="pillar-icon">⚡</span>
+            <h3>Starts Instantly</h3>
+            <p>
+              ZooCrew apps are small and fast. They open right away, stay out of
+              your way, and never slow your machine down in the background.
+            </p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">📦</span>
+            <h3>Small &amp; Portable</h3>
+            <p>
+              No installer, no fuss. Just download and run — on Windows, macOS,
+              or Linux. Take it with you on a USB drive if you want.
+            </p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">💳</span>
+            <h3>Buy Once</h3>
+            <p>
+              Pay once, own it forever. No subscriptions, no renewal notices, no
+              surprise charges. The deal is simple and it stays that way.
+            </p>
+          </div>
+          <div class="pillar">
+            <span class="pillar-icon">🔒</span>
+            <h3>Your Data</h3>
+            <p>
+              Your files stay on your machine. We don't snoop, we don't track
+              usage, and we don't require an account just to open the app.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave">
+      <svg
+        viewBox="0 0 1440 52"
+        preserveAspectRatio="none"
+        height="52"
+        fill="#f7eddc"
+      >
+        <path
+          d="M0,18 C360,46 720,4 1080,32 C1260,44 1380,10 1440,18 L1440,52 L0,52 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- CREW -->
+    <section id="crew" class="section-pad">
+      <div class="container">
+        <div class="section-hdr">
+          <p class="label">The Team</p>
+          <h2 class="title">The people who run this place.</h2>
+          <p class="sub">
+            ZooCrew is a family operation — literally. These are the team
+            members who really keep things going around here.
+          </p>
+          <p class="crew-note">(We handle the code. They handle morale.)</p>
+        </div>
+        <div class="crew-grid">
+          <div class="crew-card">
+            <div class="crew-placeholder">🐕</div>
+            <div class="crew-info">
+              <div class="crew-name">Your Dog Here</div>
+              <div class="crew-role" style="color: var(--pink)">
+                Chief Executive Officer
+              </div>
+              <div class="crew-bio">
+                Visionary. Napper. Demands treats before any meeting. Has strong
+                opinions about who gets to sit on the couch during standup.
+              </div>
+            </div>
+          </div>
+
+          <div class="crew-card">
+            <div class="crew-placeholder">🐈</div>
+            <div class="crew-info">
+              <div class="crew-name">Your Cat Here</div>
+              <div class="crew-role" style="color: var(--teal)">
+                VP of Quality Assurance
+              </div>
+              <div class="crew-bio">
+                Walks across the keyboard at critical moments. Has rejected more
+                builds than anyone on staff. Absolutely uncompromising.
+              </div>
+            </div>
+          </div>
+
+          <div class="crew-card">
+            <div class="crew-placeholder">🐇</div>
+            <div class="crew-info">
+              <div class="crew-name">Your Rabbit Here</div>
+              <div class="crew-role" style="color: var(--purple)">
+                Director of UX Research
+              </div>
+              <div class="crew-bio">
+                Studies how users interact with the world. Core finding:
+                everything should be reachable from floor level. Chewing is a
+                valid input.
+              </div>
+            </div>
+          </div>
+
+          <div class="crew-card">
+            <div class="crew-placeholder">🐠</div>
+            <div class="crew-info">
+              <div class="crew-name">Your Fish Here</div>
+              <div class="crew-role" style="color: var(--blue)">
+                Head of Infrastructure
+              </div>
+              <div class="crew-bio">
+                Calm under pressure. Never crashes. Has maintained 100% uptime
+                since joining. We model our deployments on this one.
+              </div>
+            </div>
+          </div>
+
+          <div class="crew-card">
+            <div class="crew-placeholder">🦜</div>
+            <div class="crew-info">
+              <div class="crew-name">Your Bird Here</div>
+              <div class="crew-role" style="color: var(--gold)">
+                Chief Marketing Officer
+              </div>
+              <div class="crew-bio">
+                Loudest voice in the room. Repeats key messages until they land.
+                Surprisingly good at getting attention in a crowded market.
+              </div>
+            </div>
+          </div>
+
+          <div class="crew-card">
+            <div class="crew-placeholder">🐢</div>
+            <div class="crew-info">
+              <div class="crew-name">Your Turtle Here</div>
+              <div class="crew-role" style="color: var(--orange)">
+                Senior Advisor
+              </div>
+              <div class="crew-bio">
+                Slow to commit, but never wrong. Brings perspective that only
+                comes with experience. Has seen things. Many, many things.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave wave-flip">
+      <svg
+        viewBox="0 0 1440 52"
+        preserveAspectRatio="none"
+        height="52"
+        fill="#fdf6ec"
+      >
+        <path
+          d="M0,18 C360,46 720,4 1080,32 C1260,44 1380,10 1440,18 L1440,52 L0,52 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="section-pad">
+      <div class="container">
+        <div class="about-inner">
+          <p class="label" style="text-align: center">About ZooCrew</p>
+          <h2 class="title">Built by one person,<br />for people like me.</h2>
+
+          <svg class="squiggle" width="80" height="16" viewBox="0 0 80 16">
+            <path
+              d="M0,8 C10,2 20,14 30,8 C40,2 50,14 60,8 C70,2 80,14 80,8"
+              stroke="#f07c2a"
+              stroke-width="2.5"
+              fill="none"
+              stroke-linecap="round"
+            />
+          </svg>
+
+          <p>
+            ZooCrew LLC is an independent software studio based in
+            <strong>Colorado</strong>. We make small, focused desktop tools —
+            the kind that do one thing well and get out of your way.
+          </p>
+          <p>
+            Every app is fast, self-contained, and costs a one-time price. No
+            cloud, no subscriptions, no VC money to pay back.
+          </p>
+          <p>
+            If you buy a ZooCrew app, you own it forever. That's the deal.
+            That's the whole deal.
+          </p>
+
+          <div style="margin-top: 2.5rem">
+            <a href="#apps" class="btn-primary">Browse the apps 🐾</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <a href="#" class="foot-logo">
+        <img src="ZooCrew.png" alt="ZooCrew" />
+        <span class="foot-wordmark">ZooCrew</span>
+      </a>
+      <ul class="foot-links">
+        <li><a href="#apps">Apps</a></li>
+        <li><a href="#crew">The Crew</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="mailto:hello@zoocrew.com">Contact</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms</a></li>
+      </ul>
+      <p class="foot-copy">
+        © 2026 ZooCrew LLC · Colorado · Made with love and animal supervision 🐾
+      </p>
+    </footer>
+  </body>
+</html>
