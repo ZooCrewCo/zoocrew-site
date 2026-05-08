@@ -527,9 +527,21 @@
 
       .crew-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+        grid-template-columns: repeat(6, 1fr);
         gap: 1.5rem;
         margin-top: 0.5rem;
+      }
+      .crew-card:nth-child(1) { grid-column: 1 / 3; }
+      .crew-card:nth-child(2) { grid-column: 3 / 5; }
+      .crew-card:nth-child(3) { grid-column: 5 / 7; }
+      .crew-card:nth-child(4) { grid-column: 2 / 4; }
+      .crew-card:nth-child(5) { grid-column: 4 / 6; }
+      @media (max-width: 768px) {
+        .crew-grid { grid-template-columns: repeat(2, 1fr); }
+        .crew-card:nth-child(n) { grid-column: auto; }
+      }
+      @media (max-width: 480px) {
+        .crew-grid { grid-template-columns: 1fr; }
       }
 
       .crew-card {
@@ -992,86 +1004,99 @@
         </div>
         <div class="crew-grid">
           <div class="crew-card">
-            <div class="crew-placeholder">🐕</div>
+            <img class="crew-photo" src="crew/gizmo.jpg" alt="Gizmo" />
             <div class="crew-info">
-              <div class="crew-name">Your Dog Here</div>
+              <div class="crew-name">Gizmo</div>
               <div class="crew-role" style="color: var(--pink)">
-                Chief Executive Officer
+                Head of Security
               </div>
               <div class="crew-bio">
-                Visionary. Napper. Demands treats before any meeting. Has strong
-                opinions about who gets to sit on the couch during standup.
+                Despite weighing mere pounds, Gizmo runs ZooCrew's security
+                operations with the confidence of someone twice his size. This
+                fearless Yorkie-Poo doesn't know the meaning of backing down,
+                whether he's protecting the team or keeping a watchful eye on
+                every byte of data that flows through our apps. His small
+                stature is deceiving—his presence looms large, and his loyalty
+                is unshakeable. When Gizmo's on the case, you can rest assured
+                that ZooCrew is in good paws.
               </div>
             </div>
           </div>
 
           <div class="crew-card">
-            <div class="crew-placeholder">🐈</div>
+            <img class="crew-photo" src="crew/tilly.jpg" alt="Tilly" />
             <div class="crew-info">
-              <div class="crew-name">Your Cat Here</div>
+              <div class="crew-name">Tilly</div>
               <div class="crew-role" style="color: var(--teal)">
-                VP of Quality Assurance
+                Morale Officer
               </div>
               <div class="crew-bio">
-                Walks across the keyboard at critical moments. Has rejected more
-                builds than anyone on staff. Absolutely uncompromising.
+                Tilly brings boundless enthusiasm and infectious joy to
+                everything ZooCrew does. This cheerful Coton de Tulear-Poo (or
+                Cotie-Poo, as we call her) has an uncanny ability to brighten
+                any moment—whether the team is celebrating a big release or
+                troubleshooting a tricky bug. Her optimism is contagious, her
+                tail is always wagging, and her presence reminds everyone that
+                work should be fun. Tilly's mission is simple: keep ZooCrew
+                smiling.
               </div>
             </div>
           </div>
 
           <div class="crew-card">
-            <div class="crew-placeholder">🐇</div>
+            <img class="crew-photo" src="crew/pumpkin.jpg" alt="Pumpkin" />
             <div class="crew-info">
-              <div class="crew-name">Your Rabbit Here</div>
+              <div class="crew-name">Pumpkin</div>
               <div class="crew-role" style="color: var(--purple)">
-                Director of UX Research
+                Chief Affection Officer
               </div>
               <div class="crew-bio">
-                Studies how users interact with the world. Core finding:
-                everything should be reachable from floor level. Chewing is a
-                valid input.
+                Pumpkin believes that the best code is written with love, and
+                she's on a mission to make sure everyone at ZooCrew feels it.
+                This warm and gentle cat has mastered the art of being exactly
+                where you need her—whether that's a comforting presence during
+                a late-night debugging session or a purring reminder to take a
+                break. Pumpkin's philosophy is simple: connection matters more
+                than perfection, and a little affection goes a long way.
               </div>
             </div>
           </div>
 
           <div class="crew-card">
-            <div class="crew-placeholder">🐠</div>
+            <img class="crew-photo" src="crew/luna.jpg" alt="Luna" />
             <div class="crew-info">
-              <div class="crew-name">Your Fish Here</div>
+              <div class="crew-name">Luna</div>
               <div class="crew-role" style="color: var(--blue)">
-                Head of Infrastructure
+                Chief Schedule Enforcer
               </div>
               <div class="crew-bio">
-                Calm under pressure. Never crashes. Has maintained 100% uptime
-                since joining. We model our deployments on this one.
+                Don't be fooled by Luna's feline grace—this cat runs a tight
+                ship. With an almost supernatural ability to know exactly what
+                time it is and what needs to happen next, Luna keeps ZooCrew's
+                operations running like clockwork. Meetings start on time,
+                deadlines are respected, and chaos is kept to a minimum. Luna's
+                precision and discipline are the backbone of our organization,
+                proving that structure and order are nothing to be afraid of.
               </div>
             </div>
           </div>
 
           <div class="crew-card">
-            <div class="crew-placeholder">🦜</div>
+            <img class="crew-photo" src="crew/vesta.jpg" alt="Vesta" />
             <div class="crew-info">
-              <div class="crew-name">Your Bird Here</div>
+              <div class="crew-name">Vesta</div>
               <div class="crew-role" style="color: var(--gold)">
-                Chief Marketing Officer
+                Head of HR
               </div>
               <div class="crew-bio">
-                Loudest voice in the room. Repeats key messages until they land.
-                Surprisingly good at getting attention in a crowded market.
-              </div>
-            </div>
-          </div>
-
-          <div class="crew-card">
-            <div class="crew-placeholder">🐢</div>
-            <div class="crew-info">
-              <div class="crew-name">Your Turtle Here</div>
-              <div class="crew-role" style="color: var(--orange)">
-                Senior Advisor
-              </div>
-              <div class="crew-bio">
-                Slow to commit, but never wrong. Brings perspective that only
-                comes with experience. Has seen things. Many, many things.
+                Vesta brings wisdom, patience, and a scaly perspective to
+                ZooCrew's people operations. This bearded dragon oversees
+                everything from team wellness to conflict resolution, always
+                with a thoughtful, level-headed approach. Her calm demeanor and
+                observant nature make her the perfect mediator—she listens more
+                than she speaks, and when she does offer counsel, the team
+                listens. Vesta reminds us that caring for people is just as
+                important as shipping great software.
               </div>
             </div>
           </div>
